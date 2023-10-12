@@ -7,7 +7,7 @@ function PokedexList() {
     useEffect(() => {
         getPokedexes().then(r => setPokedexes(r))
     }, []);
-    const pokedexNames = pokedexes.pokedexListResults.map((result) => <li>{result.name}</li>);
+    const pokedexNames = pokedexes.pokedexListResults.map((result, index) => <li key={index}>{result.name}</li>);
     return (
         <div className="PokedexList">
             <header className="App-header">
