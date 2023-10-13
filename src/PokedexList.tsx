@@ -1,16 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import {PokedexListModel} from "./model/PokedexListModel";
+import {Link} from "react-router-dom";
 
 function PokedexList() {
     const [pokedexes, setPokedexes] = useState<PokedexListModel>({pokedexListResults: []});
     useEffect(() => {
         getPokedexes().then(r => setPokedexes(r))
     }, []);
-    const pokedexNames = pokedexes.pokedexListResults.map((result, index) => <li key={index}>{result.name}</li>);
+    const pokedexNames = pokedexes.pokedexListResults
+        .map((result, index) => <li key={index}><Link to={result.name}> {result.name}</Link></li>);
     return (
         <div className="PokedexList">
             <header className="App-header">
+                <h2>List of pokedex</h2>
                 <ul>{pokedexNames}</ul>
             </header>
         </div>

@@ -1,5 +1,5 @@
 interface ResultModel {
-    name: String
+    name: string
 }
 
 export interface PokedexListModel {
